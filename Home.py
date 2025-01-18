@@ -109,7 +109,7 @@ class ChatbotWeb:
 
             utils.display_msg(user_query, "user")
 
-            with st.chat_message("assistant"):
+            with st.chat_message("assistant", avatar="assets/amit.jpeg"):
                 st_cb = StreamHandler(st.empty())
                 result = qa_chain.invoke(
                     {

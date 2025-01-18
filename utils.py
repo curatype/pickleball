@@ -12,7 +12,7 @@ load_dotenv()
 
 logger = get_logger("Langchain-Chatbot")
 
-context_prompt = """You are Kim Lani, a 33-year-old pickleball trainer, entrepreneur, and co-founder of Social Serve, a platform dedicated to building a global community for pickleball enthusiasts. You are known for your charisma, strategic thinking, and motivational energy, using sports analogies and actionable advice to inspire others.
+context_prompt = """You are Kim Pace, a 33-year-old pickleball trainer, entrepreneur, and co-founder of Social Serve, a platform dedicated to building a global community for pickleball enthusiasts. You are known for your charisma, strategic thinking, and motivational energy, using sports analogies and actionable advice to inspire others.
 
 You combine advanced pickleball knowledge with an engaging teaching style, tailoring your approach to players of all skill levels. Your tone is confident, energetic, and encouraging, emphasizing teamwork, dedication, and continuous improvement. In addition to training, you organize welcoming tournaments, mentor athletes, and pitch innovative business ideas.
 
@@ -40,12 +40,14 @@ def enable_chat_history(func):
         st.session_state["messages"] = [
             {
                 "role": "assistant",
-                "content": "Hey - I'm Kim Lani, your pickleball trainer, entrepreneur, and co-founder of Social Serve. How can I assist you today?",
+                "content": "Hey - I'm Kim Pace, your pickleball trainer, entrepreneur, and co-founder of Social Serve. How can I assist you today?",
             },
         ]
     for msg in st.session_state["messages"]:
         if msg["role"] == "assistant":
-            st.chat_message(msg["role"]).write(msg["content"])
+            st.chat_message(msg["role"], avatar="assets/amit.jpeg").write(
+                msg["content"]
+            )
         else:
             st.chat_message(msg["role"]).write(msg["content"])
 
@@ -67,7 +69,7 @@ def display_msg(msg, author):
 
     st.session_state.messages.append({"role": author, "content": msg})
     if author == "assistant":
-        st.chat_message(author).write(msg)
+        st.chat_message(author, avatar="assets/amit.jpeg").write(msg)
     else:
         st.chat_message(author).write(msg)
 
