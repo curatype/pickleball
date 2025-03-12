@@ -29,7 +29,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-st.set_page_config(page_title="Chat with Kim Lani")
+st.set_page_config(page_title="Chat with Kim Pace")
 # st.header("iRealization")
 # st.text("Creator, Entrepreneur, Investor, Awake.")
 
